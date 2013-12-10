@@ -3,7 +3,7 @@
 DIR=$(dirname "$0")
 NGINX_CONF="/etc/nginx/nginx.conf"
 
-apt-get install -y nginx php5-fpm realpath
+apt-get install -y nginx realpath
 
 cp .travis_nginx.conf $NGINX_CONF
 
