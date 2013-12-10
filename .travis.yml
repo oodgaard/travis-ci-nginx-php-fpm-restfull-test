@@ -1,6 +1,9 @@
 language: php
 php:
-  - 5.4
+  - 5.5
 before_script:
+  - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
+  - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
   - sudo ./setup_fpm_and_nginx_for_travis.sh
-script: ./curl_hello.sh
+script: ./rest_test.sh
